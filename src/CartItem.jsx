@@ -40,7 +40,7 @@ const handleDecrement = (item) => {
      dispatch(removeItem(item.name));
   };
   const handleCheckoutShopping = (e) => {
-  alert('Functionality to be added for future reference');
+  alert('Coming Soon');
 };
 
 
@@ -49,10 +49,17 @@ const handleDecrement = (item) => {
   const unitPrice = parseFloat(item.cost.substring(1)); // Removes the '$' sign and converts to number
   return (item.quantity * unitPrice).toFixed(2);
 };
+const calculateTotal = () => {
+    let total = 0;
+  cart.forEach((item) => {
+  total += item.quantity ;
+}); return total;
+  };
 
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+       <h2 style={{ color: 'black' }}>Total number of plants : {calculateTotal()}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
